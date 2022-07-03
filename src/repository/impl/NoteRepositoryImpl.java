@@ -4,26 +4,29 @@ import src.Note;
 import src.repository.NoteRepository;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
+
 import java.util.Set;
 
-/**
- * implements interface
- */
 
 public class NoteRepositoryImpl implements NoteRepository {
 
-    //Определение списка
-    //private; static - один на всю программу
-    //final - неизменяемый
-    //Получается константа
-    //private static  final List<Note> NOTES = new LinkedList<>();
-
-    //У заметок должны быть уникальные названия ->Set
     private static  final Set<Note> NOTES = new HashSet<>();
+    // Используем множество, а не список или массив, так как договорились,
+    // что хотим хранить только уникальные заметки. Уникальность заметок
+    // определяется с помощью методов Note#equals и Note#hashcode.
 
-    //@Override переопределение / реализация метода
+    private static final NoteRepositoryImpl SINGLETON = new NoteRepositoryImpl();
+    // Используем паттерн singleton,
+    // то есть когда мы создаем внутри класса ровно 1 объект
+    // на все приложение и потом выдаем его другим классам, чтобы они его использовали.
+    // При этом прячем конструктор, делая его приватным.
+
+    private NoteRepositoryImpl() {}
+
+    public static NoteRepository getSingleton() {
+        return SINGLETON;
+    }
+
     @Override
     public void save(Note note) {
         NOTES.add(note);

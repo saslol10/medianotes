@@ -14,7 +14,7 @@ public class Authentication {
     private static final String PASSWORD = "1234";
 
     // Метод возвращающий число "0" - успешно или "-1" - не успешно
-    public void authenticate(){
+    public int authenticate(){
         Scanner s = new Scanner(System.in);
         // int maxCount = 3; // количество попыток
         boolean isLoginSuccess = false; // успешно(true) или нет(false)
@@ -39,20 +39,10 @@ public class Authentication {
                 System.out.println("Password is incorrect. Please try again. ");
             }
         }
-
-      }
+    return 1;
+    }
     public boolean validate(String login, String password) {
-//        Можно так:
-//        if (login.equals(LOGIN) && password.equals(PASSWORD)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
 
-//        А можно так:
-//        return login.equals(LOGIN) && password.equals(PASSWORD) ? true : false;
-
-//        Но еще можно так:
         return login.equals(LOGIN) && password.equals(PASSWORD);
     }
 

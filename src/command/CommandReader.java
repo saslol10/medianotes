@@ -27,7 +27,6 @@ public class CommandReader {
     );
 
     public static void startReading() {
-        System.out.println("Program started! Write your command:");
         Scanner s = new Scanner(System.in);
 
         //бесконечный цикл
@@ -84,50 +83,5 @@ public class CommandReader {
         }
 
         return CommandType.UNDEFINED;
-
-        //String.contains("") - метод определяет содержится ли в строке заданная строка
-       /* if (command.contains("create note")) {
-            return new NoteCreator().execute(command);
-        }
-        if (command.contains("notes")) {
-            return viewAllNotes(command);
-        }
-        if (command.contains("remove note")) {
-            return removeNote(command);
-        }
-
-        if (command.contains("exit")) {
-            return 0;//Завершить программу
-        }
-        return -1;//Команда не найдена*/
     }
-
-
-
-
-    /*
-    private static int viewAllNotes(String command) {
-        var notes = noteRepository.getAllNotes();
-
-        //printf - print format - шаблон текста
-        // %s - подстановка значения (через запятую)
-        // /n, /r  - символ переноса строки
-        for (var note : notes) {
-            System.out.printf("Название: %s, Текст: %s, Автор: %ы /n",
-                    note.getName(),
-                    note.getText(),
-                    note.getAuthor()
-            );
-        }
-
-        return 1; //Код 1 - все хорошо.
-    }
-
-    private static int removeNote(String command) {
-        String[] words = command.split(" ");
-        String noteName = words[3];
-        noteRepository.remove(noteName);
-        return 1;
-    }*/
-
 }
