@@ -1,6 +1,6 @@
 package src.command.executor;
 
-import src.Note;
+import src.model.Note;
 import src.command.CommandType;
 
 import java.util.Optional;

@@ -1,8 +1,7 @@
 package src.repository;
 
-import src.Note;
+import src.model.Note;
 
-import java.util.List;
 import java.util.Set;
 
 /**

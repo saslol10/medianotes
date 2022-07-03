@@ -7,6 +7,8 @@ public enum CommandType {
     DELETE_NOTE,
     WRITE_ALL_NOTES,
 
+    CREATE_FOLDER,
+
     EXIT,
 
     UNDEFINED

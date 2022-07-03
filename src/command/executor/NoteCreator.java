@@ -1,6 +1,6 @@
 package src.command.executor;
 
-import src.Note;
+import src.model.Note;
 import src.command.CommandType;
 
 
@@ -29,14 +29,21 @@ public class NoteCreator extends AbstractCommandExecutor {
             return -1;
         }
 
+        var noteParentFolder = wordsArray[3];
+        var folder = findFolder(noteParentFolder);
+
+        if(folder.isEmpty()){
+            System.out.println("Folder not exists");
+            return - 1;
+        }
         StringBuilder noteTextSb = new StringBuilder();
-        for (int i = 3; i < wordsArray.length; i++) {
+        for (int i = 4; i < wordsArray.length; i++) {
             noteTextSb.append(wordsArray[i]);
             noteTextSb.append(" ");//костыль - добавка пробела
         }
         String noteText = noteTextSb.toString();
 
-        Note newNote = new Note(noteName, noteText);
+        Note newNote = new Note(noteName, noteText, folder.get());
         noteRepository.save(newNote);
 
         System.out.println("New note created");

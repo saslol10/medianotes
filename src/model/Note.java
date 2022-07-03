@@ -1,4 +1,4 @@
-package src;
+package src.model;
 
 import java.time.Instant;
 import java.util.Objects;
@@ -21,6 +21,7 @@ public class Note {
 
     // private - доступен только в классе
 
+    private  Folder parentFolder;
     private final String name; // название
     private String text; // содержание
     private final String author; // автор
@@ -28,16 +29,16 @@ public class Note {
     private final Instant creationDate; // дата создания
     private Instant updateDate; // дата изменений
 
-
-
-    //конструкторы
+//конструкторы
     /*
-    public src.Note(String text){} // конструктор по умолчанию
+    public src.model.Note(String text){} // конструктор по умолчанию
     */
 
-     public Note(String name, String text){
+     public Note(String name, String text,  Folder parentFolder){
          //name = namePar;
          //this - ключевое слово, использование переменной определенной в классе
+         this.parentFolder = parentFolder;
+
          this.name = name; //присваивается ссылка на область памяти
          this.text = text;
 
@@ -76,6 +77,14 @@ public class Note {
 
     public void setUpdateDate(Instant updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public Folder getParentFolder() {
+        return parentFolder;
+    }
+
+    public void setParentFolder(Folder parentFolder) {
+        this.parentFolder = parentFolder;
     }
 
     //equals и hashcode всегда определяются в паре

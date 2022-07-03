@@ -1,9 +1,6 @@
 package src.command;
 
-import src.command.executor.CommandExecutor;
-import src.command.executor.NoteCreator;
-import src.command.executor.NoteDeleter;
-import src.command.executor.NoteWriter;
+import src.command.executor.*;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -23,12 +20,13 @@ public class CommandReader {
     private static final Map<CommandType, CommandExecutor> COMMAND_EXECUTORS_GROUPED_BY_COMMAND = Map.of(
             CommandType.CREATE_NOTE, new NoteCreator(),
             CommandType.DELETE_NOTE, new NoteDeleter(),
-            CommandType.WRITE_ALL_NOTES, new NoteWriter()
+            CommandType.WRITE_ALL_NOTES, new NoteWriter(),
+            CommandType.CREATE_FOLDER, new FolderCreator()
     );
 
     public static void startReading() {
+        System.out.println("Program started! Write your command: ");
         Scanner s = new Scanner(System.in);
-
         //бесконечный цикл
         int i = 1;
         while (i != 0) {
@@ -76,6 +74,10 @@ public class CommandReader {
 
         if (commandString.contains("notes")) {
             return CommandType.WRITE_ALL_NOTES;
+        }
+
+        if (commandString.contains("create folder")) {
+            return CommandType.CREATE_FOLDER;
         }
 
         if (commandString.contains("exit")) {

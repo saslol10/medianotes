@@ -1,6 +1,6 @@
 package src.repository.impl;
 
-import src.Note;
+import src.model.Note;
 import src.repository.NoteRepository;
 
 import java.util.HashSet;
