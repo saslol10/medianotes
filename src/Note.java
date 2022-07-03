@@ -1,6 +1,7 @@
 package src;
 
 import java.time.Instant;
+import java.util.Objects;
 
 /**
  * javadoc
@@ -67,5 +68,32 @@ public class Note {
 
      public Instant getCreationDate() {
         return creationDate;
+    }
+
+    public Instant getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Instant updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    //equals и hashcode всегда определяются в паре
+    //метод сравнения
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;//если ссылка равна объекту о они равны
+        if (o == null || getClass() != o.getClass()) return false;
+        //если ссылка равна нулю - ссылка пустая или если имена классов не совпадают они не равны
+        Note note = (Note) o;
+        //если все параметры равны, то объекты равны
+        //в данном случае достаточно только название(name)
+        return Objects.equals(name, note.name);
+     }
+
+    //генерирует число хеш
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

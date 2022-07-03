@@ -14,7 +14,7 @@ public class Authentication {
     private static final String PASSWORD = "1234";
 
     // Метод возвращающий число "0" - успешно или "-1" - не успешно
-    public static int authenticate(){
+    public void authenticate(){
         Scanner s = new Scanner(System.in);
         // int maxCount = 3; // количество попыток
         boolean isLoginSuccess = false; // успешно(true) или нет(false)
@@ -33,13 +33,27 @@ public class Authentication {
             // .equals() - для сравнения значений строк
             // &, && - и
             // |, || - или
-            if(login.equals(LOGIN) && password.equals(PASSWORD)){
+            if (validate(login, password)) {
                 isLoginSuccess = true;
+            } else {
+                System.out.println("Password is incorrect. Please try again. ");
             }
         }
 
-        //if(isLoginSuccess){return 0;}else{return -1;} //сокращается до =>
-        return isLoginSuccess ? 0 : -1; //тернарный оператор - сокращение кода
-
       }
+    public boolean validate(String login, String password) {
+//        Можно так:
+//        if (login.equals(LOGIN) && password.equals(PASSWORD)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+
+//        А можно так:
+//        return login.equals(LOGIN) && password.equals(PASSWORD) ? true : false;
+
+//        Но еще можно так:
+        return login.equals(LOGIN) && password.equals(PASSWORD);
+    }
+
 }
