@@ -32,7 +32,7 @@ public abstract class AbstractCommandExecutor implements CommandExecutor {
 
     protected Optional<Folder> findFolder(String folderName) {
         for (Folder folder : folderRepository.findAll()) {
-            if (folder.getName().equals(folderName)) {
+            if (folder.name().equals(folderName)) {
                 return Optional.of(folder);
             }
         }
@@ -58,10 +58,10 @@ public abstract class AbstractCommandExecutor implements CommandExecutor {
 
     //Рекурсия
     private void findFolderPath(Folder folder, List<String> path) {
-        path.add(folder.getName());
+        path.add(folder.name());
 
-        if (folder.getParentFolder() != null) {
-            findFolderPath(folder.getParentFolder(), path);
+        if (folder.parentFolder() != null) {
+            findFolderPath(folder.parentFolder(), path);
         }
     }
 
