@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Note {
+public class Note implements Serializable {
 
     private  Folder parentFolder;
 
@@ -23,18 +24,18 @@ public class Note {
 
     private String text; // содержание
 
-    private final String author; // автор
+    private final String authorEmail; // автор
 
     private final Instant creationDate; // дата создания
     private Instant updateDate; // дата изменений
 
-     public Note(String name, String text,  Folder parentFolder){
+     public Note(String name, String text,  Folder parentFolder, String authorEmail){
          this.parentFolder = parentFolder;
 
          this.name = name;
          this.text = text;
 
-         author = null;
+         this.authorEmail = authorEmail;
 
          creationDate = Instant.now();
      }

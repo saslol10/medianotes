@@ -1,5 +1,7 @@
 package medianotes.model;
 
 
-public record Folder (String name, Folder parentFolder) {}
+import java.io.Serializable;
+
+public record Folder (String name, Folder parentFolder) implements Serializable {}
 

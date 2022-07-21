@@ -1,12 +1,7 @@
 package medianotes;
 
+import medianotes.authentication.Authentication;
 import medianotes.command.CommandReader;
-import medianotes.repository.NoteRepository;
-import medianotes.repository.impl.NoteRepositoryImpl;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * javadoc

@@ -1,4 +1,6 @@
-package medianotes;
+package medianotes.authentication;
+
+import medianotes.context.UserContext;
 
 import java.util.Scanner;
 
@@ -22,18 +24,21 @@ public class Authentication {
         //while(условия){...} //можно заменить на for
         //for(инициализация; условия; итерация){...}
         for(int maxCount = 3; maxCount>0 && !isLoginSuccess; maxCount--) {
+
+            String login;
+            String password;
+
             System.out.print("Login: ");
-            var login = s.nextLine();
+            login = s.nextLine();
 
             System.out.print("Password: ");
-            var password = s.nextLine();
+            password = s.nextLine();
 
-            // if(условия){...}else{...}
-            // .equals() - для сравнения значений строк
-            // &, && - и
-            // |, || - или
             if (validate(login, password)) {
                 isLoginSuccess = true;
+
+                UserContext.setUserLogin(login);
+
             } else {
                 System.out.println("Password is incorrect. Please try again. ");
             }
