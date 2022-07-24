@@ -17,6 +17,8 @@ import java.util.Objects;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Note implements Serializable {
 
+    private int id;
+
     private  Folder parentFolder;
 
     @EqualsAndHashCode.Include
@@ -29,7 +31,9 @@ public class Note implements Serializable {
     private final Instant creationDate; // дата создания
     private Instant updateDate; // дата изменений
 
-     public Note(String name, String text,  Folder parentFolder, String authorEmail){
+     public Note(int id, String name, String text,  Folder parentFolder, String authorEmail){
+         this.id = id;
+
          this.parentFolder = parentFolder;
 
          this.name = name;

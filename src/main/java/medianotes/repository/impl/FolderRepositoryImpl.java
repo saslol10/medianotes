@@ -17,11 +17,11 @@ public class FolderRepositoryImpl implements FolderRepository {
     private static final  String DATA_FILE_NAME = "data-folder.dat";
 
     static {
-        loadDataToFile();
-
-        if(FOLDERS.stream().noneMatch(folder -> folder.name().equals("root"))){
-            FOLDERS.add(new Folder("root", null));
-        }
+//        loadDataToFile();
+//
+//        if(FOLDERS.stream().noneMatch(folder -> folder.name().equals("root"))){
+//            FOLDERS.add(new Folder("root", null));
+//        }
     }
 
     private static final  FolderRepository SINGLETON = new FolderRepositoryImpl();

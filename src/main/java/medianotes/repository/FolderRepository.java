@@ -5,7 +5,8 @@ import medianotes.model.Note;
 
 import java.util.Set;
 
-public interface FolderRepository {
+public interface
+FolderRepository {
     Set<Folder> findAll();
 
     void save(Folder newFolder);
