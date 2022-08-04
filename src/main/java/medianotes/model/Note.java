@@ -31,20 +31,31 @@ public class Note implements Serializable {
     private final Instant creationDate; // дата создания
     private Instant updateDate; // дата изменений
 
-     public Note(int id, String name, String text,  Folder parentFolder, String authorEmail){
-         this.id = id;
+    public Note(int id, String name, String text,  Folder parentFolder, String authorEmail){
+        this.id = id;
 
-         this.parentFolder = parentFolder;
+        this.parentFolder = parentFolder;
 
-         this.name = name;
-         this.text = text;
+        this.name = name;
+        this.text = text;
 
-         this.authorEmail = authorEmail;
+        this.authorEmail = authorEmail;
 
-         creationDate = Instant.now();
-     }
+        creationDate = Instant.now();
+    }
 
-     public void setText(String text) {
+    public Note(String name, String text,  Folder parentFolder, String authorEmail){
+        this.parentFolder = parentFolder;
+
+        this.name = name;
+        this.text = text;
+
+        this.authorEmail = authorEmail;
+
+        creationDate = Instant.now();
+    }
+
+    public void setText(String text) {
          this.text = text;
          this.updateDate = Instant.now();
      }

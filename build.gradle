@@ -2,6 +2,7 @@
         id 'application'
         id 'java'
         id 'idea'
+        id 'war'
     }
 
     repositories {
@@ -10,6 +11,9 @@
 
     dependencies {
         implementation 'org.postgresql:postgresql:42.3.6'
+
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+        compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 
         compileOnly 'org.projectlombok:lombok:1.18.24'
         annotationProcessor 'org.projectlombok:lombok:1.18.24'
